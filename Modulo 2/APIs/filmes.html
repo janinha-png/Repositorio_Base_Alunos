@@ -1,77 +1,298 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="utf-8">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Honk&display=swap" rel="stylesheet">
-    <style>
-        body {
-            background-color: rgb(255, 255, 255);
-        }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Amantes de filmes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Honk&display=swap" rel="stylesheet" />
+  <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        h1 {
-            color: red;
-        }
+    body {
+      background-color: #121212;
+      color: #eee;
+      padding: 30px;
+      line-height: 1.4;
+    }
 
-        h2 {
-            color: rgb(194, 28, 36);
-        }
+    /* Container geral para os gêneros */
+    section.genero {
+      background: #1f1f1f;
+      border-radius: 12px;
+      padding: 20px 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+      transition: background-color 0.3s ease;
+    }
 
-        div {
-            flex: auto;
-            place-items: center;
-        }
+    section.genero:hover {
+      background: #2a2a2a;
+    }
 
-        .honk {
-            font-family: "Honk", system-ui;
-            font-optical-sizing: auto;
-            font-weight: 400;
-            font-style: normal;
-        }
-    </style>
-    <title>Filmes</title>
+    /* Título do gênero */
+    section.genero > h1.honk {
+      color: #e50914; /* Vermelho Netflix */
+      font-size: 2.2rem;
+      margin-bottom: 15px;
+      text-transform: capitalize;
+      letter-spacing: 2px;
+      border-bottom: 2px solid #e50914;
+      padding-bottom: 6px;
+    }
+
+    /* Lista de filmes */
+    section.genero > ul.filmes {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fill,minmax(160px,1fr));
+      gap: 20px;
+      padding: 10px;
+    }
+
+    /* Cada filme na lista */
+    section.genero > ul.filmes > li {
+      background: #333;
+      border-radius: 8px;
+      padding: 10px 12px;
+      min-width: fit-content;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: default;
+      transition: background-color 0.25s ease, transform 0.25s ease;
+      user-select: none;
+      padding: 10px;
+    }
+
+    section.genero > ul.filmes > li:hover {
+      background-color: #e50914;
+      color: #fff;
+      transform: scale(1.05);
+      
+    }
+
+    img {
+        border-radius: 8px;
+    }
+
+    /* Ajuste responsivo para telas menores */
+    @media (max-width: 600px) {
+      body {
+        padding: 15px;
+      }
+      section.genero {
+        padding: 15px 20px;
+      }
+      section.genero > h1.honk {
+        font-size: 1.6rem;
+      }
+      section.genero > ul.filmes {
+        grid-template-columns: repeat(auto-fill,minmax(130px,1fr));
+      }
+      section.genero > ul.filmes > li {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
 </head>
-
 <body>
-    <h1 class="honk">drama</h1>
-    <h2>Ainda Estou Aqui</h2>
-    <h2>O Poderoso Chefão</h2>
-    <h2>Ela</h2>
-    <h2>O milagre</h2>
-     <h2>Whiplash: Em Busca da Perfeição</h2>
-    <h1 class="honk">comédia</h1>
-    <h2>Tempos Modernos</h2>
-    <h2>American Pie</h2>
-    <h2>Dr. Dolittle</h2>
-    <h2>Todo mundo em panico</h2>
-    <h2>O diabo veste prada</h2>
-    <h1 class="honk">policial</h1>
-    <h2>O Exterminador do Futuro</h2>
-    <h2>O Procurado</h2>
-    <h2>Velozes e Furiosos</h2>
-    <h1 class="honk">guerra</h1>
-    <h2>Rambo</h2>
-    <h2>1917</h2>
-    <h2>Até o Último Homem</h2>
-    <h1 class="honk">terror</h1>
-    <h2>Panico</h2>
-    <h2>Chucky</h2>
-    <h2>Sexta-feira 13</h2>
-    <h2>It: A Coisa</h2>
-    <h2>Corra</h2>
-    <h1 class="honk">romance</h1>
-    <h2>Um dia</h2>
-    <h2>Como eu era antes de voce</h2>
-    <h2>Questão de tempo</h2>
-    <h2>Por lugares incriveis</h2>
-    <h2>Orgulho e preconceito</h2>
-    <h1 class="honk">ficção-científica</h1>
-    <h2>Interestelar</h2>
-    <h2>A chegada</h2>
-    <h2>Não Olhe para Cima</h2>
-    <h2>Perdido em Marte</h2>
-    <h2>Ex_Machina: Instinto Artificial</h2>
-</body>
 
+  <section class="genero">
+    <h1 class="honk">drama</h1>
+    <ul class="filmes">
+      <li>Ainda Estou Aqui
+        <img width="200px" src="https://upload.wikimedia.org/wikipedia/pt/5/57/Ainda_Estou_Aqui_2024_poster.jpg">
+      </li>
+      <li>O Poderoso Chefão
+        <img width="200px" src="https://falaanimal.com.br/wp-content/uploads/2025/05/opoderosochefaoposter_05052025-768x1024.jpg">
+      </li>
+      <li>Ela
+        <img width="200px" src="https://play-lh.googleusercontent.com/ZjgAAptIP1O-80cRVe9iVJHTuusNJ6pvv_ZDTMlZk5ZuFCqA1SrfB70K8I-1YYX79sOu">
+      </li>
+      <li>O milagre
+        <img width="200px" src="https://cinegarimpo.com.br/wp/content/uploads/2022/12/cinegarimpo.com.br-o-milagre-the-wonder-captura-de-tela-2022-12-18-as-22.19.10.png">
+      </li>
+      <li>Whiplash: Em Busca da Perfeição
+        <img width="200px" src="https://i.pinimg.com/564x/41/1a/cf/411acf872b8ce328ad02a2e4f0d9c745.jpg">
+      </li>
+    </ul>
+  </section>
+
+  <section class="genero">
+    <h1 class="honk">comédia</h1>
+    <ul class="filmes">
+      <li>Tempos Modernos
+        <img width="200px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Modern_Times_poster.jpg/500px-Modern_Times_poster.jpg">
+      </li>
+      <li>American Pie
+        <img width="200px" src="https://i.ebayimg.com/00/s/MTYwMFgxMTA1/z/vyoAAOSwnulgm8Mv/$_57.JPG?set_id=8800005007">
+      </li>
+      <li>Dr. Dolittle
+        <img width="200px" src="https://i.pinimg.com/474x/b9/fe/80/b9fe80ba5ffd66f973477ebe0dc0c1c8.jpg">
+      </li>
+      <li>Todo mundo em panico
+        <img width="200px" src="https://media.themoviedb.org/t/p/w500/daorfyZdHkI44vuf3DVDbmJkYQI.jpg">
+      </li>
+      <li>O diabo veste prada
+        <img width="200px" src="https://m.media-amazon.com/images/M/MV5BYzgwZWFjYjAtMzVjMy00NDY1LWI5ZWUtZjcwNjliZjUxZGMwXkEyXkFqcGc@._V1_.jpg">
+      </li>
+    </ul>
+  </section>
+
+  <section class="genero">
+    <h1 class="honk">policial</h1>
+    <ul class="filmes">
+      <li>O Exterminador do Futuro
+        <img width="200px" src="https://http2.mlstatic.com/D_NQ_NP_785147-CBT75986223553_042024-O.webp">
+      </li>
+      <li>O Procurado
+        <img width="200px" src="https://acdn-us.mitiendanube.com/stores/001/054/212/products/img20250808_15450409-0ea75c9e9dc172f24c17551963095559-480-0.jpg">
+      </li>
+      <li>Velozes e Furiosos
+        <img width="200px" src="https://img.elo7.com.br/product/main/268DDE5/big-poster-velozes-e-furiosos-lo11-tamanho-90x60-cm-geek.jpg">
+      </li>
+      <li>Maniaco do parque
+        <img width="200px" src="https://upload.wikimedia.org/wikipedia/pt/7/7e/Man%C3%ADaco_do_Parque_%28filme%29.png">
+      </li>
+      <li>Zodíaco
+        <img width="200px" src="https://i.pinimg.com/736x/be/53/68/be53688dce7a60bf6032033ae23b707e.jpg">
+      </li>
+    </ul>
+  </section>
+
+  <section class="genero">
+    <h1 class="honk">guerra</h1>
+    <ul class="filmes">
+      <li>Rambo
+        <img width="200px" src="https://m.media-amazon.com/images/I/61n0PKQgxYL._UF894,1000_QL80_.jpg">
+      </li>
+      <li>1917
+        <img width="200px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbcgtQHvBVH58lh1gLFG7Ib2y1d5GnHtGdMg&s">
+      </li>
+      <li>Até o Último Homem
+        <img width="200px" src="https://i.pinimg.com/474x/47/47/8a/47478af6ab82b42858e27dae77668441.jpg">
+      </li>
+      <li>Dunkirk
+        <img width="200px" src="https://i.ebayimg.com/images/g/elsAAOSwUKxYf3XS/s-l400.jpg">
+      </li>
+      <li>Guerra civil
+        <img width="200px" src="https://admin.cnnbrasil.com.br/wp-content/uploads/sites/12/2024/03/Guerra-Civil_Diamond-Films_Poster-Wagner-Moura.jpg?w=697">
+      </li>
+    </ul>
+  </section>
+
+  <section class="genero">
+    <h1 class="honk">terror</h1>
+    <ul class="filmes">
+      <li>Panico
+        <img width="200px" src="https://uauposters.com.br/media/catalog/product/8/8/881320221026-uau-posters-scream-panico-terror-filmes.jpg">
+      </li>
+      <li>Chucky
+        <img width="200px" src="https://cdn.media.amplience.net/s/hottopic/19669723_hi?$productMainDesktop$&fmt=auto">
+      </li>
+      <li>Sexta-feira 13
+        <img width="200px" src="https://br.web.img3.acsta.net/pictures/15/03/10/19/40/135848.jpg">
+      </li>
+      <li>It: A Coisa
+        <img width="200px" src="https://uauposters.com.br/media/catalog/product/1/1/111220180226-uau-posters-filmes-terror-it-a-coisa-palhaco.jpg">
+      </li>
+      <li>Corra
+        <img width="200px" src="https://play-lh.googleusercontent.com/pKCzar5sU56Ifiae6cVUXutXdW5zFdAKk-E937DfMq-AY2g7D5juhnaUyayBGHhb_zG_rCd9CWax2kOK-G4">
+      </li>
+    </ul>
+  </section>
+
+  <section class="genero">
+    <h1 class="honk">romance</h1>
+    <ul class="filmes">
+      <li>Um dia
+        <img width="200px" src="https://media.fstatic.com/j2FD73gB2Xzdv1PWz6Qzyv3EXMI=/322x478/smart/filters:format(webp)/media/movies/covers/2011/09/782c1e2225400d98df1727edfb2538c9.jpg">
+      </li>
+      <li>Como eu era antes de voce
+        <img width="200px" src="https://play-lh.googleusercontent.com/JQKfopRtWqyD1cUXjx4V00qLnKecgKlSTS6sL0YX1T0H4bzyOK8SxdQIUbZ6NTsKfkBm">
+      </li>
+      <li>Questão de tempo
+        <img width="200px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9g4linGYEGHHQjygkU-z7orl5Gh_g5zQgaQ&s">
+      </li>
+      <li>Por lugares incriveis
+        <img width="200px" src="https://pbs.twimg.com/media/GNEu7YpXgAIHufk.jpg">
+      </li>
+      <li>Orgulho e preconceito
+        <img width="200px" src="https://ingresso-a.akamaihd.net/img/cinema/cartaz/13988-cartaz.jpg">
+      </li>
+    </ul>
+  </section>
+
+  <section class="genero">
+    <h1 class="honk">ficção-científica</h1>
+    <ul class="filmes">
+      <li>Interestelar
+        <img width="200px" src="https://m.media-amazon.com/images/I/71GTnYW5ejL._AC_SL1500_.jpg">
+      </li>
+      <li>A chegada
+        <img width="200px" src="https://br.web.img3.acsta.net/pictures/16/10/06/23/05/054278.jpg">
+      </li>
+      <li>Não Olhe para Cima
+        <img width="200px" src="https://br.web.img2.acsta.net/pictures/21/12/06/21/17/3973076.jpg">
+      </li>
+      <li>Perdido em Marte
+        <img width="200px" src="https://i.pinimg.com/736x/60/d2/e4/60d2e4b518004318fc8f065df6c8901f.jpg">
+      </li>
+      <li>Ex_Machina: Instinto Artificial
+        <img width="200px" src="https://br.web.img3.acsta.net/pictures/16/02/11/19/08/291258.jpg">
+      </li>
+    </ul>
+  </section>
+
+  <section class="genero">
+    <h1 class="honk">fantasia</h1>
+    <ul class="filmes">
+      <li>Coraline
+        <img width="200px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjSH3UpBSujz_K9Cj9vecJy7aFwjRzntRCzA&s">
+      </li>
+      <li>O estranho mundo de jack
+        <img width="200px" src="https://m.media-amazon.com/images/M/MV5BZmU1YzUyMzEtYTdmZi00MTI1LTkwYTgtYWRlNWQ0MDMxYTFkXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg">
+      </li>
+      <li>Pinóquio
+        <img width="200px" src="https://pbs.twimg.com/media/Fbp-5A9WAAYny2i?format=jpg&name=4096x4096">
+      </li>
+      <li>O magico de oz
+        <img width="200px" src="https://m.media-amazon.com/images/M/MV5BNWY3OWRmYTYtYWM2Ny00NzNiLWJmY2UtYzI1NTRkZDdhZWE1XkEyXkFqcGc@._V1_.jpg">
+      </li>
+      <li>Harry potter
+        <img width="200px" src="https://uauposters.com.br/media/catalog/product/1/7/173620140528-uau-posters-filmes-harry-potter-1-e-a-pedra-filosofal--harry-potter-and-the-sorcerer-s-stone-3.jpg">
+      </li>
+    </ul>
+  </section>
+
+  <section class="genero">
+    <h1 class="honk">suspense</h1>
+    <ul class="filmes">
+      <li>Numero 23
+        <img width="200px" src="https://uauposters.com.br/media/catalog/product/2/7/274220250528-uau-posters-o-numero-23-the-number-23-filmes.jpg">
+      </li>
+      <li>Tubarão
+        <img width="200px" src="https://br.web.img2.acsta.net/medias/nmedia/18/90/37/75/20093768.jpg">
+      </li>
+      <li>O hóspede
+        <img width="200px" src="https://play-lh.googleusercontent.com/IcwD0kPdW2eBMpXpgf92_YUxQF1GSy3f9u2xZuB6aVgKWY0gVf0KqQN4b8KDPS9Nswr1Pw">
+      </li>
+      <li>Um lugar silencioso:dia um
+        <img width="200px" src="https://a-static.mlcdn.com.br/1500x1500/poster-cartaz-um-lugar-silencioso-dia-um-pop-arte-poster/poparteskins2/pos-03689-30x45cm/be07353820974148dfafae272b202184.jpeg">
+      </li>
+      <li>não!não olhe!
+        <img width="200px" src="https://delfos.net.br/wp-content/uploads/2022/08/nao-nao-olhe-poster.jpg">
+      </li>
+    </ul>
+  </section>
+
+</body>
 </html>
